@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151813">
+  <meta name="description" content="北京驰序科技有限公司，以清晰的工程方法，让技术创新稳步抵达真实场景。">
+  <title>北京驰序科技有限公司 · 驰而有序，技术向前</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #151813;
+      --ink-soft: #23271f;
+      --paper: #eff0e8;
+      --paper-deep: #e3e5da;
+      --acid: #d4fa58;
+      --orange: #ff7959;
+      --muted: #777b70;
+      --line: rgba(21, 24, 19, .2);
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      --sans: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+      --display: Impact, "Arial Narrow", "Noto Sans CJK SC", sans-serif;
+      --gutter: clamp(22px, 6vw, 96px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button { color: inherit; font: inherit; }
+    ::selection { background: var(--acid); color: var(--ink); }
+
+    .topbar {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 82px;
+      padding: 0 var(--gutter);
+      background: var(--ink);
+      color: var(--paper);
+      border-bottom: 1px solid rgba(239, 240, 232, .16);
+    }
+    .brand { display: inline-flex; align-items: center; gap: 15px; min-width: 0; }
+    .brand-mark { position: relative; display: inline-block; width: 32px; height: 29px; flex: 0 0 auto; }
+    .brand-mark::before { position: absolute; top: 3px; left: 1px; width: 12px; height: 22px; content: ""; background: var(--acid); }
+    .brand-mark::after { position: absolute; top: 0; right: 0; width: 14px; height: 29px; content: ""; background: var(--paper); clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 82%); }
+    .brand-name { overflow: hidden; font-size: 15px; font-weight: 700; letter-spacing: .08em; text-overflow: ellipsis; white-space: nowrap; }
+    .brand-en { display: block; margin-top: 4px; color: #a5a89d; font: 10px var(--mono); letter-spacing: .14em; }
+    .nav { display: flex; align-items: center; gap: clamp(22px, 3vw, 48px); font: 11px var(--mono); letter-spacing: .1em; }
+    .nav a { transition: color .2s ease; }
+    .nav a:hover, .nav a:focus-visible { color: var(--acid); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 14px; padding: 13px 17px; border: 1px solid rgba(239, 240, 232, .45); }
+    .nav-cta span { color: var(--acid); }
+    .menu-toggle { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; padding: 0; border: 1px solid rgba(239, 240, 232, .35); background: transparent; cursor: pointer; }
+    .menu-toggle i, .menu-toggle i::before, .menu-toggle i::after { display: block; width: 19px; height: 1px; background: var(--paper); transition: transform .2s ease; }
+    .menu-toggle i { position: relative; }
+    .menu-toggle i::before, .menu-toggle i::after { position: absolute; left: 0; content: ""; }
+    .menu-toggle i::before { top: -6px; }
+    .menu-toggle i::after { top: 6px; }
+    .menu-toggle[aria-expanded="true"] i { background: transparent; }
+    .menu-toggle[aria-expanded="true"] i::before { top: 0; transform: rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] i::after { top: 0; transform: rotate(-45deg); }
+
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: min(760px, calc(100svh - 82px));
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      padding: 70px var(--gutter) 74px;
+      background-color: var(--ink);
+      background-image: radial-gradient(rgba(239, 240, 232, .1) .8px, transparent .8px);
+      background-size: 22px 22px;
+      color: var(--paper);
+    }
+    .hero::after { position: absolute; right: 9%; bottom: 11%; width: 33vw; height: 34vw; max-width: 430px; max-height: 430px; content: ""; border: 1px solid rgba(212, 250, 88, .21); transform: rotate(45deg); pointer-events: none; }
+    .hero::before { position: absolute; top: 17%; right: 20%; width: 10px; height: 10px; content: ""; background: var(--orange); box-shadow: 146px 136px 0 var(--acid), -140px 230px 0 rgba(239, 240, 232, .35); }
+    .hero-inner { position: relative; z-index: 1; width: min(100%, 1180px); margin: 0 auto; }
+    .eyebrow { display: flex; align-items: center; gap: 12px; font: 11px var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow::before { width: 24px; height: 2px; content: ""; background: var(--acid); }
+    .signal { display: flex; align-items: center; gap: 13px; width: min(390px, 100%); margin: 28px 0 38px; color: #b8bbb1; font: 11px var(--mono); letter-spacing: .1em; }
+    .signal-track { display: flex; flex: 1; gap: 3px; height: 17px; padding: 3px; border: 1px solid rgba(239, 240, 232, .28); }
+    .signal-track b { display: block; flex: 1; background: var(--acid); transform-origin: left; animation: power-on .75s both; }
+    .signal-track b:nth-child(n+19) { background: rgba(239, 240, 232, .16); }
+    @keyframes power-on { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    h1 { max-width: 910px; margin: 0; font-size: clamp(58px, 10vw, 132px); font-weight: 900; line-height: .99; letter-spacing: 0; }
+    h1 span { color: var(--acid); }
+    .hero-sub { max-width: 590px; margin: 31px 0 0; font-size: clamp(19px, 2.2vw, 27px); line-height: 1.8; }
+    .hero-sub strong { color: var(--acid); font-weight: 500; }
+    .hero-note { margin: 10px 0 0; color: #a7aa9f; font-size: 14px; line-height: 1.8; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 35px; }
+    .button { display: inline-flex; min-height: 49px; align-items: center; justify-content: center; gap: 22px; padding: 0 18px; border: 1px solid var(--acid); background: var(--acid); color: var(--ink); font-size: 13px; font-weight: 700; transition: background .2s ease, color .2s ease, transform .2s ease; }
+    .button:hover { transform: translateY(-2px); background: transparent; color: var(--acid); }
+    .button-secondary { border-color: rgba(239, 240, 232, .42); background: transparent; color: var(--paper); }
+    .button-secondary:hover { border-color: var(--acid); color: var(--acid); }
+    .hero-bottom { position: absolute; z-index: 1; right: var(--gutter); bottom: 26px; left: var(--gutter); display: flex; justify-content: space-between; color: #92958c; font: 10px var(--mono); letter-spacing: .13em; }
+    .hero-bottom span:last-child { color: var(--acid); }
+
+    .section { padding: clamp(78px, 11vw, 148px) var(--gutter); }
+    .section-inner { width: min(100%, 1180px); margin: 0 auto; }
+    .section-kicker { margin: 0 0 22px; color: var(--muted); font: 11px var(--mono); letter-spacing: .13em; text-transform: uppercase; }
+    .section-kicker span { margin-right: 12px; color: var(--orange); }
+    .section h2 { max-width: 780px; margin: 0; font-size: clamp(34px, 5.2vw, 68px); font-weight: 850; line-height: 1.19; }
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: clamp(34px, 8vw, 115px); }
+    .about-copy p { max-width: 620px; margin: 25px 0 0; color: #4d5148; font-size: 16px; line-height: 2; }
+    .about-copy .about-small { margin-top: 17px; color: var(--muted); font-size: 13px; }
+    .about-image-wrap { position: relative; min-height: 350px; background: #29342d; }
+    .about-image-wrap::before { position: absolute; z-index: 1; top: -11px; left: -11px; width: 54px; height: 54px; content: ""; border-top: 2px solid var(--orange); border-left: 2px solid var(--orange); }
+    .about-image-wrap::after { position: absolute; right: 16px; bottom: 16px; width: 38px; height: 38px; content: ""; border-right: 1px solid var(--acid); border-bottom: 1px solid var(--acid); }
+    .about-image { display: block; width: 100%; height: 100%; min-height: 350px; object-fit: cover; filter: saturate(.72) contrast(1.08); }
+    .image-caption { position: absolute; right: 0; bottom: 0; left: 0; padding: 18px 20px; background: linear-gradient(transparent, rgba(14, 17, 14, .8)); color: white; font: 10px var(--mono); letter-spacing: .1em; }
+
+    .focus { background: var(--paper-deep); }
+    .focus-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 42px; }
+    .focus-head p { max-width: 340px; margin: 0 0 6px; color: #5e6258; font-size: 14px; line-height: 1.9; }
+    .focus-list { border-top: 1px solid var(--line); }
+    .focus-item { display: grid; grid-template-columns: 70px 1fr auto; align-items: center; gap: 25px; min-height: 106px; border-bottom: 1px solid var(--line); transition: padding .2s ease, background .2s ease; }
+    .focus-item:hover { padding-right: 12px; padding-left: 12px; background: rgba(255, 255, 255, .34); }
+    .focus-number { color: #85897e; font: 12px var(--mono); }
+    .focus-item h3 { margin: 0; font-size: clamp(19px, 2.5vw, 28px); font-weight: 700; }
+    .focus-item p { margin: 7px 0 0; color: #64685f; font-size: 13px; line-height: 1.7; }
+    .focus-arrow { color: var(--orange); font-size: 22px; }
+
+    .method { background: var(--paper); }
+    .method-head { display: flex; align-items: end; justify-content: space-between; gap: 34px; margin-bottom: 52px; }
+    .method-head p { max-width: 370px; margin: 0 0 6px; color: #5e6258; font-size: 14px; line-height: 1.9; }
+    .method-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+    .method-step { min-height: 248px; padding: 22px 22px 24px 0; border-right: 1px solid var(--line); }
+    .method-step + .method-step { padding-left: 22px; }
+    .method-step:last-child { border-right: 0; }
+    .method-index { color: var(--orange); font: 12px var(--mono); }
+    .method-step h3 { margin: 39px 0 11px; font-size: 21px; }
+    .method-step p { margin: 0; color: #5e6258; font-size: 13px; line-height: 1.9; }
+    .method-output { display: block; margin-top: 18px; color: #777b70; font: 10px var(--mono); letter-spacing: .05em; }
+
+    .culture { background: var(--ink); color: var(--paper); }
+    .culture .section-kicker { color: #a0a398; }
+    .culture-intro { display: flex; align-items: end; justify-content: space-between; gap: 36px; margin-bottom: 58px; }
+    .culture-intro p { max-width: 340px; margin: 0; color: #b5b8ad; font-size: 14px; line-height: 1.9; }
+    .values { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(239, 240, 232, .28); }
+    .value { min-height: 265px; padding: 24px 28px 26px 0; border-right: 1px solid rgba(239, 240, 232, .2); }
+    .value + .value { padding-left: 28px; }
+    .value:last-child { border-right: 0; }
+    .value-number { color: var(--acid); font: 12px var(--mono); }
+    .value h3 { margin: 54px 0 10px; font-size: clamp(20px, 2.2vw, 28px); }
+    .value p { max-width: 260px; margin: 0; color: #a5a89d; font-size: 13px; line-height: 1.9; }
+    .value-en { display: block; margin-top: 25px; color: #70746b; font: 10px var(--mono); letter-spacing: .12em; }
+
+    .contact { position: relative; overflow: hidden; background: var(--acid); }
+    .contact::after { position: absolute; top: -112px; right: -90px; width: 320px; height: 320px; content: ""; border: 1px solid rgba(21, 24, 19, .2); transform: rotate(45deg); pointer-events: none; }
+    .contact-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 34px; }
+    .contact .section-kicker { color: #41483b; }
+    .contact h2 { max-width: 700px; }
+    .contact-copy { max-width: 520px; margin: 23px 0 0; color: #41483b; font-size: 15px; line-height: 1.9; }
+    .contact-action { display: inline-flex; min-height: 52px; align-items: center; gap: 26px; padding: 0 18px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); font-size: 13px; transition: color .2s, background .2s; }
+    .contact-action:hover { background: transparent; color: var(--ink); }
+    .contact-action span { color: var(--acid); }
+
+    .footer { padding: 42px var(--gutter) 22px; background: var(--ink); color: var(--paper); }
+    .footer-inner { display: flex; width: min(100%, 1180px); align-items: center; justify-content: space-between; gap: 24px; margin: 0 auto; }
+    .footer .brand-name { font-size: 13px; }
+    .footer-note { color: #a5a89d; font-size: 12px; }
+    .footer-meta { display: flex; justify-content: space-between; width: min(100%, 1180px); margin: 40px auto 0; padding-top: 18px; border-top: 1px solid rgba(239, 240, 232, .18); color: #8b8e85; font: 10px var(--mono); letter-spacing: .06em; }
+    .to-top { color: var(--acid); }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 800px) {
+      .topbar { min-height: 72px; }
+      .menu-toggle { display: flex; }
+      .nav { position: fixed; inset: 72px 0 0; display: flex; align-items: stretch; flex-direction: column; gap: 0; padding: 20px var(--gutter); background: var(--ink); opacity: 0; pointer-events: none; transform: translateY(-8px); transition: opacity .2s ease, transform .2s ease; }
+      .nav.is-open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+      .nav a { padding: 20px 0; border-bottom: 1px solid rgba(239, 240, 232, .18); font-size: 13px; }
+      .nav .nav-cta { justify-content: space-between; margin-top: 20px; padding: 16px; border: 1px solid rgba(239, 240, 232, .4); }
+      .hero { min-height: min(690px, calc(100svh - 72px)); padding-top: 57px; }
+      .hero::after { right: -4%; bottom: 14%; width: 50vw; height: 50vw; }
+      .hero::before { top: 15%; right: 12%; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-image-wrap { min-height: 300px; }
+      .about-image { min-height: 300px; max-height: 440px; }
+      .focus-head, .culture-intro { align-items: start; flex-direction: column; }
+      .focus-head p, .culture-intro p { max-width: 560px; }
+      .method-head { align-items: start; flex-direction: column; }
+      .method-head p { max-width: 560px; }
+      .method-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .method-step:nth-child(2) { border-right: 0; }
+      .method-step:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .method-step:nth-child(3) { padding-left: 0; }
+      .contact-grid { grid-template-columns: 1fr; align-items: start; }
+    }
+    @media (max-width: 520px) {
+      :root { --gutter: 22px; }
+      .brand { gap: 10px; }
+      .brand-name { font-size: 13px; }
+      .brand-en { font-size: 9px; }
+      .hero { min-height: 690px; justify-content: flex-start; padding-top: 77px; }
+      .hero::after { right: -35%; bottom: 16%; width: 80vw; height: 80vw; }
+      .hero::before { top: 11%; right: 15%; }
+      .signal { margin: 24px 0 35px; }
+      h1 { font-size: clamp(55px, 15vw, 78px); }
+      .hero-sub { margin-top: 25px; font-size: 19px; }
+      .hero-note { font-size: 13px; }
+      .hero-bottom { bottom: 19px; font-size: 9px; }
+      .section { padding-top: 82px; padding-bottom: 82px; }
+      .about-image-wrap, .about-image { min-height: 245px; }
+      .focus-item { grid-template-columns: 35px 1fr auto; gap: 12px; min-height: 112px; }
+      .focus-item p { max-width: 260px; font-size: 12px; }
+      .method-steps { grid-template-columns: 1fr; }
+      .method-step, .method-step + .method-step, .method-step:nth-child(3) { min-height: auto; padding: 22px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .method-step:first-child { padding-top: 22px; }
+      .method-step:last-child { border-bottom: 0; }
+      .method-step:nth-child(2) { border-right: 0; }
+      .method-step:nth-child(n+3) { border-top: 0; }
+      .method-step h3 { margin-top: 16px; }
+      .method-output { margin-top: 10px; }
+      .values { grid-template-columns: 1fr; }
+      .value, .value + .value { min-height: auto; padding: 23px 0 25px; border-right: 0; border-bottom: 1px solid rgba(239, 240, 232, .2); }
+      .value:last-child { border-bottom: 0; }
+      .value h3 { margin-top: 21px; }
+      .value-en { margin-top: 13px; }
+      .footer-inner { align-items: start; flex-direction: column; }
+      .footer-meta { gap: 14px; align-items: start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="北京驰序科技有限公司首页">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span><span class="brand-name">北京驰序科技有限公司</span><span class="brand-en">CHIXU TECHNOLOGY</span></span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="主导航">
+      <a href="#about">关于驰序</a>
+      <a href="#focus">关注方向</a>
+      <a href="#method">合作路径</a>
+      <a href="#culture">做事方式</a>
+      <a href="jobs.html">招聘岗位</a>
+      <a class="nav-cta" href="#contact">开启交流 <span>↗</span></a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-label="打开导航菜单" aria-controls="site-nav" aria-expanded="false"><i></i></button>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="eyebrow">工程清晰 · 向前有序</div>
+        <div class="signal" aria-label="系统就绪">
+          <span>&gt; SYSTEM READY</span>
+          <span class="signal-track" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></span>
+          <span>01</span>
+        </div>
+        <h1 id="hero-title">驰而有序，<br><span>技术向前。</span></h1>
+        <p class="hero-sub">让复杂技术，<br><strong>稳步抵达真实场景。</strong></p>
+        <p class="hero-note">北京驰序科技有限公司</p>
+        <div class="hero-actions">
+          <a class="button" href="#about">了解驰序 <span>↓</span></a>
+          <a class="button button-secondary" href="#focus">我们的关注 <span>↗</span></a>
+        </div>
+      </div>
+      <div class="hero-bottom"><span>BEIJING · CHIXU TECHNOLOGY</span><span>SCROLL TO EXPLORE ↓</span></div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="section-inner about-grid">
+        <div class="about-copy reveal">
+          <p class="section-kicker"><span>01 /</span> ABOUT CHIXU</p>
+          <h2 id="about-title">把每一步，<br>走得清楚而扎实。</h2>
+          <p>北京驰序科技有限公司。我们相信，好的技术不止于新颖，更要经得起真实场景的检验。以清晰的问题定义、可靠的工程实践和持续协作，让想法一步步成为可用的成果。</p>
+          <p class="about-small">驰，是持续向前；序，是把事情做好所需要的节奏与秩序。</p>
+        </div>
+        <figure class="about-image-wrap reveal">
+          <img class="about-image" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1500&q=85" alt="精密电路板与芯片元件的近景" loading="lazy">
+          <figcaption class="image-caption">DETAIL / DISCIPLINE / DELIVERY</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section focus" id="focus" aria-labelledby="focus-title">
+      <div class="section-inner">
+        <div class="focus-head reveal">
+          <div>
+            <p class="section-kicker"><span>02 /</span> WHAT WE VALUE</p>
+            <h2 id="focus-title">关注技术，<br>更关注它如何落地。</h2>
+          </div>
+          <p>从问题出发，把技术选择、实现路径与实际效果放在同一张图里讨论。</p>
+        </div>
+        <div class="focus-list">
+          <article class="focus-item reveal">
+            <span class="focus-number">01</span>
+            <div><h3>软件与系统工程</h3><p>把复杂问题拆解清楚，让方案易于理解、验证和持续维护。</p></div>
+            <span class="focus-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="focus-item reveal">
+            <span class="focus-number">02</span>
+            <div><h3>智能技术的实际应用</h3><p>从真实需求出发，审慎评估新技术，并探索合适的应用方式。</p></div>
+            <span class="focus-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="focus-item reveal">
+            <span class="focus-number">03</span>
+            <div><h3>长期、可靠的交付</h3><p>重视过程中的沟通与验证，也重视成果交付后的稳定与迭代。</p></div>
+            <span class="focus-arrow" aria-hidden="true">↗</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section method" id="method" aria-labelledby="method-title">
+      <div class="section-inner">
+        <div class="method-head reveal">
+          <div>
+            <p class="section-kicker"><span>03 /</span> FROM IDEA TO DELIVERY</p>
+            <h2 id="method-title">让想法，<br>一步步成为可用成果。</h2>
+          </div>
+          <p>好的工程协作不从堆砌技术开始，而是先理解问题，再通过验证找到稳妥的实现路径。</p>
+        </div>
+        <div class="method-steps">
+          <article class="method-step reveal"><span class="method-index">STEP 01</span><h3>理解真实需求</h3><p>明确使用场景、目标用户与需要解决的问题，先对齐成功标准。</p><span class="method-output">需求与边界</span></article>
+          <article class="method-step reveal"><span class="method-index">STEP 02</span><h3>拆解系统方案</h3><p>梳理软硬件关系、关键约束和实现优先级，让复杂问题变得可讨论。</p><span class="method-output">方案与优先级</span></article>
+          <article class="method-step reveal"><span class="method-index">STEP 03</span><h3>快速验证假设</h3><p>用原型、测试或小范围试验检查关键判断，及时根据事实调整。</p><span class="method-output">验证与反馈</span></article>
+          <article class="method-step reveal"><span class="method-index">STEP 04</span><h3>持续交付迭代</h3><p>关注质量、稳定性和实际使用反馈，让交付之后仍有清晰的改进方向。</p><span class="method-output">交付与迭代</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section culture" id="culture" aria-labelledby="culture-title">
+      <div class="section-inner">
+        <div class="culture-intro reveal">
+          <div>
+            <p class="section-kicker"><span>04 /</span> HOW WE WORK</p>
+            <h2 id="culture-title">认真做事，<br>也认真对待彼此。</h2>
+          </div>
+          <p>我们期待建立坦诚、专注、彼此尊重的合作关系，让团队能把精力留给真正重要的问题。</p>
+        </div>
+        <div class="values">
+          <article class="value reveal"><span class="value-number">01</span><h3>先把问题说清楚</h3><p>明确目标与边界，让每一步努力都有方向。</p><span class="value-en">CLARITY FIRST</span></article>
+          <article class="value reveal"><span class="value-number">02</span><h3>以事实持续验证</h3><p>保持开放，快速试验，让结果推动下一步判断。</p><span class="value-en">LEARN BY DOING</span></article>
+          <article class="value reveal"><span class="value-number">03</span><h3>为长期结果负责</h3><p>尊重工程质量，也尊重每一次承诺与协作。</p><span class="value-en">OWN THE OUTCOME</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="section-inner contact-grid reveal">
+        <div>
+          <p class="section-kicker"><span>05 /</span> GET IN TOUCH</p>
+          <h2 id="contact-title">好的合作，<br>从一次清晰的交流开始。</h2>
+          <p class="contact-copy">欢迎围绕技术合作、项目交流与职业机会展开沟通。请通过北京驰序科技有限公司的官方渠道与我们联系。</p>
+          <a class="contact-email" href="mailto:chixu@163.com">chixu@163.com ↗</a>
+        </div>
+        <a class="contact-action" href="#home">回到首页 <span>↑</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="brand" href="#home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span><span class="brand-name">北京驰序科技有限公司</span><span class="brand-en">CHIXU TECHNOLOGY</span></span>
+      </a>
+      <p class="footer-note">驰而有序，让技术稳步向前。</p>
+    </div>
+    <div class="footer-meta"><span>© <span id="year"></span> 北京驰序科技有限公司</span><a class="to-top" href="#home">BACK TO TOP ↑</a></div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.nav');
+
+    function closeMenu() {
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', '打开导航菜单');
+      navigation.classList.remove('is-open');
+      document.body.classList.remove('menu-open');
+    }
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? '打开导航菜单' : '关闭导航菜单');
+      navigation.classList.toggle('is-open', !isOpen);
+      document.body.classList.toggle('menu-open', !isOpen);
+    });
+
+    navigation.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    document.querySelector('#year').textContent = new Date().getFullYear();
+
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver((entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            currentObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+    } else {
+      document.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'));
+    }
+  </script>
+</body>
+</html>

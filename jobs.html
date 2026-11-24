@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151813">
+  <meta name="description" content="了解北京驰序科技有限公司的硬件、产品、商业化与职能岗位方向。">
+  <title>招聘方向 · 北京驰序科技有限公司</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #151813;
+      --paper: #eff0e8;
+      --paper-deep: #e3e5da;
+      --acid: #d4fa58;
+      --orange: #ff7959;
+      --muted: #777b70;
+      --line: rgba(21, 24, 19, .2);
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      --sans: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+      --gutter: clamp(22px, 6vw, 96px);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    a { color: inherit; text-decoration: none; }
+    button, input { color: inherit; font: inherit; }
+    .topbar { position: sticky; z-index: 10; top: 0; display: flex; min-height: 82px; align-items: center; justify-content: space-between; padding: 0 var(--gutter); border-bottom: 1px solid rgba(239, 240, 232, .16); background: var(--ink); color: var(--paper); }
+    .brand { display: inline-flex; align-items: center; gap: 15px; min-width: 0; }
+    .brand-mark { position: relative; width: 32px; height: 29px; flex: 0 0 auto; }
+    .brand-mark::before { position: absolute; top: 3px; left: 1px; width: 12px; height: 22px; content: ""; background: var(--acid); }
+    .brand-mark::after { position: absolute; top: 0; right: 0; width: 14px; height: 29px; content: ""; background: var(--paper); clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 82%); }
+    .brand-name { font-size: 15px; font-weight: 700; letter-spacing: .08em; white-space: nowrap; }
+    .brand-en { display: block; margin-top: 4px; color: #a5a89d; font: 10px var(--mono); letter-spacing: .14em; }
+    .top-link { display: inline-flex; align-items: center; gap: 14px; padding: 13px 17px; border: 1px solid rgba(239, 240, 232, .45); font: 11px var(--mono); letter-spacing: .1em; transition: color .2s, border-color .2s; }
+    .top-link:hover { border-color: var(--acid); color: var(--acid); }
+    .top-link span { color: var(--acid); }
+    .hero { position: relative; overflow: hidden; padding: clamp(74px, 10vw, 132px) var(--gutter) 74px; background-color: var(--ink); background-image: radial-gradient(rgba(239, 240, 232, .1) .8px, transparent .8px); background-size: 22px 22px; color: var(--paper); }
+    .hero::after { position: absolute; right: 7%; bottom: -200px; width: 410px; height: 410px; content: ""; border: 1px solid rgba(212, 250, 88, .24); transform: rotate(45deg); pointer-events: none; }
+    .hero-inner, .content-inner, .footer-inner { position: relative; z-index: 1; width: min(100%, 1180px); margin: 0 auto; }
+    .eyebrow, .section-kicker { margin: 0 0 22px; font: 11px var(--mono); letter-spacing: .13em; text-transform: uppercase; }
+    .eyebrow { display: flex; align-items: center; gap: 12px; color: #b4b7ac; }
+    .eyebrow::before { width: 24px; height: 2px; content: ""; background: var(--acid); }
+    h1 { max-width: 850px; margin: 0; font-size: clamp(46px, 8vw, 94px); font-weight: 900; line-height: 1.08; }
+    h1 span { color: var(--acid); }
+    .hero-copy { max-width: 620px; margin: 24px 0 0; color: #bfc1b8; font-size: 15px; line-height: 1.9; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 34px; color: #8f9388; font: 10px var(--mono); letter-spacing: .1em; }
+    .hero-meta span::before { margin-right: 9px; color: var(--acid); content: "+"; }
+    .roles { padding: 66px var(--gutter) 112px; }
+    .section-kicker { color: var(--muted); }
+    .section-kicker span { margin-right: 12px; color: var(--orange); }
+    .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin: 30px 0 24px; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filter { min-height: 40px; padding: 0 14px; border: 1px solid var(--line); background: transparent; font-size: 12px; cursor: pointer; transition: color .18s, border-color .18s, background .18s; }
+    .filter:hover { border-color: var(--ink); }
+    .filter[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+    .search { display: flex; width: min(300px, 100%); min-height: 42px; align-items: center; gap: 10px; padding: 0 12px; border: 1px solid var(--line); background: rgba(255, 255, 255, .35); }
+    .search span { color: var(--muted); font-size: 18px; }
+    .search input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; font-size: 12px; }
+    .search input::placeholder { color: #888c81; }
+    .result-count { margin: 0 0 15px; color: var(--muted); font: 11px var(--mono); }
+    .job-list { border-top: 1px solid var(--line); }
+    .job { display: grid; grid-template-columns: minmax(180px, .72fr) 1.28fr auto; align-items: center; gap: clamp(18px, 4vw, 56px); min-height: 124px; padding: 22px 6px; border-bottom: 1px solid var(--line); transition: padding .2s, background .2s; }
+    .job:hover { padding-right: 16px; padding-left: 16px; background: rgba(255, 255, 255, .42); }
+    .job[hidden] { display: none; }
+    .job h2 { margin: 0; font-size: clamp(17px, 2vw, 23px); font-weight: 750; line-height: 1.5; }
+    .job-category { display: inline-block; margin-top: 10px; color: #777b70; font: 10px var(--mono); letter-spacing: .06em; }
+    .job p { max-width: 600px; margin: 0; color: #55594f; font-size: 13px; line-height: 1.85; }
+    .job-arrow { color: var(--orange); font-size: 21px; }
+    .empty { display: none; padding: 38px 0; color: var(--muted); font-size: 14px; }
+    .empty.is-visible { display: block; }
+    .notice { display: flex; align-items: start; gap: 13px; margin: 0 0 30px; padding: 17px 18px; border-left: 2px solid var(--orange); background: rgba(255, 255, 255, .4); color: #51554c; font-size: 12px; line-height: 1.8; }
+    .notice strong { color: var(--ink); white-space: nowrap; }
+    .apply-guide { margin-top: 58px; padding: 30px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .apply-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .apply-head h3 { margin: 0; font-size: clamp(22px, 3vw, 32px); }
+    .apply-head p { max-width: 430px; margin: 0; color: #5e6258; font-size: 13px; line-height: 1.8; }
+    .apply-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+    .apply-step { padding: 19px 22px 0 0; }
+    .apply-step + .apply-step { padding-left: 22px; border-left: 1px solid var(--line); }
+    .apply-step span { color: var(--orange); font: 11px var(--mono); }
+    .apply-step h4 { margin: 14px 0 8px; font-size: 15px; }
+    .apply-step p { margin: 0; color: #5e6258; font-size: 12px; line-height: 1.85; }
+    .apply-email { display: inline-flex; align-items: center; gap: 12px; margin-top: 20px; padding-bottom: 5px; border-bottom: 1px solid var(--ink); font-size: 13px; font-weight: 700; }
+    .apply-email span { color: #b45036; }
+    .cta { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 62px; padding: 30px 0 0; border-top: 1px solid var(--line); }
+    .cta p { margin: 0; font-size: 16px; line-height: 1.8; }
+    .cta a { display: inline-flex; min-height: 48px; align-items: center; gap: 22px; padding: 0 17px; background: var(--acid); font-size: 12px; font-weight: 700; transition: background .2s; }
+    .cta a:hover { background: #c4ed3e; }
+    .footer { padding: 28px var(--gutter) 22px; background: var(--ink); color: var(--paper); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-note { color: #a5a89d; font-size: 12px; }
+    .footer-meta { display: flex; width: min(100%, 1180px); justify-content: space-between; gap: 16px; margin: 25px auto 0; padding-top: 16px; border-top: 1px solid rgba(239, 240, 232, .18); color: #8b8e85; font: 10px var(--mono); }
+    .footer-meta a { color: var(--acid); }
+    @media (max-width: 760px) {
+      .topbar { min-height: 72px; }
+      .brand { gap: 10px; }
+      .brand-name { font-size: 13px; }
+      .brand-en { font-size: 9px; }
+      .top-link { gap: 8px; padding: 11px; font-size: 10px; }
+      .toolbar { align-items: stretch; flex-direction: column; }
+      .search { width: 100%; }
+      .job { grid-template-columns: 1fr auto; gap: 9px 16px; padding: 21px 4px; }
+      .job-detail { grid-column: 1; grid-row: 2; }
+      .job-arrow { grid-column: 2; grid-row: 1 / span 2; }
+      .job p { font-size: 12px; }
+      .cta { align-items: start; flex-direction: column; }
+      .footer-inner { align-items: start; flex-direction: column; }
+    }
+    @media (max-width: 420px) {
+      :root { --gutter: 20px; }
+      .hero { padding-top: 68px; }
+      .hero-meta { gap: 10px 18px; }
+      .roles { padding-top: 48px; }
+      .filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .filter { padding: 0 8px; }
+      .notice { flex-direction: column; gap: 4px; }
+      .apply-head { align-items: start; flex-direction: column; }
+      .apply-steps { grid-template-columns: 1fr; }
+      .apply-step, .apply-step + .apply-step { padding: 18px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+      .apply-step:last-child { border-bottom: 0; }
+      .footer-meta { align-items: start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="北京驰序科技有限公司首页">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span><span class="brand-name">北京驰序科技有限公司</span><span class="brand-en">CHIXU TECHNOLOGY</span></span>
+    </a>
+    <a class="top-link" href="index.html#about">返回公司主页 <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-inner">
+        <p class="eyebrow">CAREERS / CHIXU TECHNOLOGY</p>
+        <h1 id="page-title">找到值得投入的事，<br><span>一起向前。</span></h1>
+        <p class="hero-copy">在这里了解驰序科技关注的硬件、产品、商业化与职能岗位方向。我们重视清晰沟通、务实协作，以及把想法认真落地的过程。</p>
+        <div class="hero-meta"><span>硬件</span><span>产品</span><span>商业化</span><span>职能</span></div>
+      </div>
+    </section>
+
+    <section class="roles" aria-labelledby="roles-title">
+      <div class="content-inner">
+        <p class="section-kicker"><span>01 /</span> OPEN DIRECTIONS</p>
+        <h2 id="roles-title" style="margin:0;font-size:clamp(30px,4.5vw,54px);line-height:1.2">岗位方向</h2>
+        <div class="toolbar">
+          <div class="filters" role="group" aria-label="按岗位类别筛选">
+            <button class="filter" type="button" data-category="全部" aria-pressed="true">全部</button>
+            <button class="filter" type="button" data-category="硬件" aria-pressed="false">硬件</button>
+            <button class="filter" type="button" data-category="产品" aria-pressed="false">产品</button>
+            <button class="filter" type="button" data-category="商业化" aria-pressed="false">商业化</button>
+            <button class="filter" type="button" data-category="职能" aria-pressed="false">职能</button>
+          </div>
+          <label class="search"><span aria-hidden="true">⌕</span><input id="job-search" type="search" placeholder="搜索岗位名称或类别" aria-label="搜索岗位名称或类别"></label>
+        </div>
+        <p class="result-count" id="result-count" aria-live="polite"></p>
+        <aside class="notice"><strong>岗位信息说明</strong><span>以下内容为驰序科技的岗位方向示例，方便了解相关工作领域，并不代表当前实际开放职位。具体招聘计划、工作地点及任职条件请以公司官方发布为准。</span></aside>
+        <div class="job-list" id="job-list">
+          <article class="job" data-category="硬件" data-search="硬件产品工程师 AI 硬件 研发 产品">
+            <div><h2>硬件产品工程师（AI 硬件方向）</h2><span class="job-category">硬件</span></div>
+            <div class="job-detail"><p>参与硬件产品从需求定义到方案验证的工程协作，关注可用性、可靠性与软硬件配合。</p></div>
+            <span class="job-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="job" data-category="商业化" data-search="GTM 产品 商业化 市场 go to market">
+            <div><h2>GTM</h2><span class="job-category">商业化</span></div>
+            <div class="job-detail"><p>围绕产品定位与目标市场，协同整理发布节奏、市场信息和落地计划，推动产品价值有效触达用户。</p></div>
+            <span class="job-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="job" data-category="商业化" data-search="销售 商业 客户 合作">
+            <div><h2>销售</h2><span class="job-category">商业化</span></div>
+            <div class="job-detail"><p>理解客户的实际需求，建立长期沟通与合作关系，并协同团队推进合适的解决方案。</p></div>
+            <span class="job-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="job" data-category="产品" data-search="硬件产品运营 产品 商业化 硬件">
+            <div><h2>硬件产品运营</h2><span class="job-category">产品</span></div>
+            <div class="job-detail"><p>协同产品与业务团队完善产品信息、上市准备和用户反馈机制，支持硬件产品的持续运营。</p></div>
+            <span class="job-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="job" data-category="产品" data-search="产品视觉设计师 设计 品牌 用户体验">
+            <div><h2>产品视觉设计师</h2><span class="job-category">产品</span></div>
+            <div class="job-detail"><p>将产品信息与品牌表达转化为清楚、一致的视觉体验，参与界面、传播和相关设计协作。</p></div>
+            <span class="job-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="job" data-category="产品" data-search="产品摄影实习生 摄影 视觉 内容">
+            <div><h2>产品摄影实习生</h2><span class="job-category">产品</span></div>
+            <div class="job-detail"><p>协助完成产品拍摄与基础素材整理，探索准确呈现产品细节和使用场景的影像表达。</p></div>
+            <span class="job-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="job" data-category="商业化" data-search="出海运营实习生 海外 运营 国际化">
+            <div><h2>出海运营实习生</h2><span class="job-category">商业化</span></div>
+            <div class="job-detail"><p>支持海外市场资料整理、用户沟通和运营项目执行，帮助团队理解不同市场的需求特点。</p></div>
+            <span class="job-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="job" data-category="商业化" data-search="出海增长实习生 KOL 海外 社交媒体">
+            <div><h2>出海增长实习生（KOL 方向）</h2><span class="job-category">商业化</span></div>
+            <div class="job-detail"><p>协助研究海外创作者与内容渠道，参与合作沟通和效果复盘，积累可验证的增长经验。</p></div>
+            <span class="job-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="job" data-category="商业化" data-search="出海增长实习生 开发者运营 海外 社区">
+            <div><h2>出海增长实习生（开发者运营方向）</h2><span class="job-category">商业化</span></div>
+            <div class="job-detail"><p>参与开发者内容与社区运营，收集技术用户反馈，并协助改进产品沟通和支持体验。</p></div>
+            <span class="job-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="job" data-category="商业化" data-search="内容运营实习生 内容 品牌 编辑">
+            <div><h2>内容运营实习生</h2><span class="job-category">商业化</span></div>
+            <div class="job-detail"><p>协助规划与制作品牌及产品内容，参与选题、资料核对和渠道发布，保持表达准确、有条理。</p></div>
+            <span class="job-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="job" data-category="职能" data-search="HR 人力资源 招聘 组织">
+            <div><h2>HR</h2><span class="job-category">职能</span></div>
+            <div class="job-detail"><p>支持人才招募与员工相关工作，协助完善沟通流程和团队协作体验。</p></div>
+            <span class="job-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="job" data-category="职能" data-search="行政 行政支持 办公室 运营">
+            <div><h2>行政</h2><span class="job-category">职能</span></div>
+            <div class="job-detail"><p>维护日常办公支持与行政流程，细致协调资源和事务，让团队工作顺畅开展。</p></div>
+            <span class="job-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="job" data-category="职能" data-search="HR 实习生 人力资源 招聘">
+            <div><h2>HR 实习生</h2><span class="job-category">职能</span></div>
+            <div class="job-detail"><p>协助整理招聘信息、安排沟通流程和维护基础人事资料，在实践中了解人力资源工作。</p></div>
+            <span class="job-arrow" aria-hidden="true">↗</span>
+          </article>
+        </div>
+        <p class="empty" id="empty-state">没有找到匹配的岗位方向，请尝试其他关键词。</p>
+        <section class="apply-guide" aria-labelledby="apply-title">
+          <div class="apply-head">
+            <h3 id="apply-title">让一次沟通更高效</h3>
+            <p>目前页面展示的是岗位方向示例，不代表实际开放职位。联系前可先确认近期招聘计划，并在邮件中说明希望沟通的具体方向。</p>
+          </div>
+          <div class="apply-steps">
+            <article class="apply-step"><span>01 / 方向</span><h4>说明你关注什么</h4><p>写明意向岗位或合作方向，以及你希望解决的问题或承担的工作。</p></article>
+            <article class="apply-step"><span>02 / 经历</span><h4>提供相关材料</h4><p>附上简历，并可补充作品、项目链接或能体现实践过程的材料。</p></article>
+            <article class="apply-step"><span>03 / 发送</span><h4>使用清晰的邮件主题</h4><p>建议格式：应聘 / 合作方向 + 姓名。请勿发送身份证号、银行卡等敏感信息。</p></article>
+          </div>
+          <a class="apply-email" href="mailto:chixu@163.com?subject=%E5%BA%94%E8%81%98%20%2F%20%E5%90%88%E4%BD%9C%E6%96%B9%E5%90%91%20%2B%20%E5%A7%93%E5%90%8D">邮件联系 <span>↗</span></a>
+        </section>
+        <div class="cta"><p>想了解驰序科技，或希望进一步沟通相关机会？<br>欢迎先认识我们。</p><a href="index.html#contact">了解公司与联系 <span>↗</span></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span><span class="brand-name">北京驰序科技有限公司</span><span class="brand-en">CHIXU TECHNOLOGY</span></span></a>
+      <span class="footer-note">驰而有序，让技术稳步向前。</span>
+    </div>
+    <div class="footer-meta"><span>© <span id="year"></span> 北京驰序科技有限公司</span><a href="index.html">返回首页 ↑</a></div>
+  </footer>
+
+  <script>
+    const filterButtons = [...document.querySelectorAll('.filter')];
+    const jobCards = [...document.querySelectorAll('.job')];
+    const searchInput = document.querySelector('#job-search');
+    const resultCount = document.querySelector('#result-count');
+    const emptyState = document.querySelector('#empty-state');
+    let activeCategory = '全部';
+
+    function updateJobs() {
+      const query = searchInput.value.trim().toLocaleLowerCase();
+      let visibleCount = 0;
+
+      jobCards.forEach((card) => {
+        const matchesCategory = activeCategory === '全部' || card.dataset.category === activeCategory;
+        const matchesQuery = `${card.dataset.search} ${card.textContent}`.toLocaleLowerCase().includes(query);
+        const isVisible = matchesCategory && matchesQuery;
+        card.hidden = !isVisible;
+        if (isVisible) visibleCount += 1;
+      });
+
+      resultCount.textContent = `${visibleCount} 个岗位方向`;
+      emptyState.classList.toggle('is-visible', visibleCount === 0);
+    }
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        activeCategory = button.dataset.category;
+        filterButtons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        updateJobs();
+      });
+    });
+
+    searchInput.addEventListener('input', updateJobs);
+    document.querySelector('#year').textContent = new Date().getFullYear();
+    updateJobs();
+  </script>
+</body>
+</html>
